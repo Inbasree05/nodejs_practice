@@ -28,13 +28,26 @@ const fs=require('fs');
 //         }
 //     })
 // }
+// if(fs.existsSync('./docs/file.txt')){
+//     fs.appendFile('./docs/file.txt',"Inbasree here",(err)=>{
+//         if(err){
+//             console.log(err.message);
+//         }
+//         else{
+//             console.log("File Updated Successfully");
+//         }
+//     })
+// }
 if(fs.existsSync('./docs/file.txt')){
-    fs.appendFile('./docs/file.txt',"Inbasree here",(err)=>{
+    fs.unlink('./docs/file.txt',(err)=>{
         if(err){
             console.log(err.message);
         }
         else{
-            console.log("File Updated Successfully");
+            console.log("File Deleted Successfully");
         }
-    })
+    });
+}
+else{
+    console.log("File does not exists");
 }
