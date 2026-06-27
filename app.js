@@ -1,2 +1,16 @@
-const math=require('./math');
-console.log(math.add(5,6));
+const exp=require('express');
+const app=exp();
+app.listen(3000);
+app.get('/',(req,res)=>{
+    res.sendFile('./docs/index.html',{root:__dirname});
+})
+app.get('/home',(req,res)=>{
+    res.redirect('/');
+})
+app.get('/about',(req,res)=>{
+    res.sendFile('./docs/abot.html',{root:__dirname});
+})
+app.use((req,res)=>{
+    res.sendFile('./docs/404.html',{root:__dirname});
+})
+
